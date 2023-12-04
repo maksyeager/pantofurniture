@@ -1,0 +1,22 @@
+.cart{
+    align-self: center;
+    justify-self: center;
+    
+    position: relative;
+}
+
+.cart__count{
+    display: inline-block;
+    height: 25px;
+    padding: 0 6px;
+
+    position: absolute;
+    right: -6px;
+    top: 3px;
+
+    background-color: var(--accent);
+    border-radius: 40px;
+
+    line-height: 25px;
+    font-weight: 700;
+}

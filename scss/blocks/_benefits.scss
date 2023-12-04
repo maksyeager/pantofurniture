@@ -1,0 +1,15 @@
+.benefits{
+    padding: 120px 0px;
+}
+
+.benefits__grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.benefits__title{
+    max-width: 260px;
+    font-size: 42px;
+    font-weight: 700;
+}

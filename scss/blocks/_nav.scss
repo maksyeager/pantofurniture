@@ -1,0 +1,18 @@
+.nav{
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    gap: 20px;
+}
+
+.nav__logo{
+    align-self: center;
+    color: #FFF;
+    font-family: var(--font-main);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.28px;
+    text-transform: capitalize;
+}
+

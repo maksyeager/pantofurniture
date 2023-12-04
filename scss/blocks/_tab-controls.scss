@@ -1,0 +1,25 @@
+.tab-controls{
+    display: inline-flex;
+    padding: 6px;
+    
+    border-radius: 44px;
+    background-color: #EEE;
+}
+
+.tab-controls__btn{
+    display: flex;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 20px;
+
+    color: rgba(31, 31, 31, 0.8);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.85; /* 33.3px */
+    
+    &--active{
+        border-radius: 32px;
+        background-color: #FFF;
+    }
+}

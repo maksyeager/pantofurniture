@@ -1,0 +1,79 @@
+.header{
+    position: relative;
+    padding-top: 40px;
+    background-color: var(--footer-bg);
+    background-image: url("./../img/header/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1440 / 1084;
+
+    color: var(--header-text-color);
+    
+    a{
+        color: var(--header-text-color);
+    }
+
+    @include retina-bg(url("./../img/header/header-bg@2x.jpg"));
+    
+    
+}
+
+.header__nav{
+    margin-bottom: 86px;
+}
+
+.header__content{
+    text-align: center;
+}
+
+.header__title{
+    margin-bottom: 14px;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 130%; /* 104px */
+    letter-spacing: -0.8px;
+    text-transform: capitalize;
+}
+
+.header__content p{
+    margin: 0 auto;
+    max-width: 606px;
+    opacity: 0.8;
+    font-size: 24px;
+    line-height: 160%; /* 38.4px */
+}
+
+.header__search{
+    margin: 0 auto;
+    margin-top: 45px;
+}
+
+/* Dots */
+
+.header__dot-sofa{
+    position: absolute;
+    left: calc(296 * 100% / 1440);
+    top: calc(685 * 100% / 1084);
+    transform: translate();
+}
+
+.header__dot-vase{
+    position: absolute;
+    left: calc(114 * 100% / 1440);
+    top: calc(754 * 100% / 1084);
+    transform: translate(-50%, -50%);
+}
+
+.header__dot-item{
+    position: absolute;
+    left: calc(810 * 100% / 1440);
+    top: calc(787 * 100% / 1084);
+    transform: translate(-50%, -50%);
+
+}
+
+.header__dot-wall{
+    position: absolute;
+    right: calc(46 * 100% / 1440);
+    top: calc(821 * 100% / 1084);
+}
