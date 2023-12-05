@@ -9,6 +9,10 @@ body{
     max-width: 1310px;
     padding: 0 15px;
     margin: 0 auto;
+
+    &--small{
+        max-width: 1094px;
+    }
 }
 
 .none{

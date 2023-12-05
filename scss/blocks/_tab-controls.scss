@@ -1,5 +1,6 @@
 .tab-controls{
     display: inline-flex;
+    gap: 5px;
     padding: 6px;
     
     border-radius: 44px;
@@ -11,15 +12,18 @@
     height: 45px;
     justify-content: center;
     align-items: center;
+
     padding: 7px 20px;
+    border-radius: 32px;
 
     color: rgba(31, 31, 31, 0.8);
     font-size: 18px;
     font-weight: 500;
     line-height: 1.85; /* 33.3px */
+
+    transition: all 0.3s ease-in;
     
     &--active{
-        border-radius: 32px;
         background-color: #FFF;
     }
 }
