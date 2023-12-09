@@ -22,8 +22,21 @@
     line-height: 1.85; /* 33.3px */
 
     transition: all 0.3s ease-in;
+
+    &:hover{
+        background-color: rgba($color: #fff, $alpha: 0.4);
+    }
     
     &--active{
         background-color: #FFF;
+
+        &:hover{
+            background-color: #fff;
+        }
+    }
+
+    @include media-phone{
+        height: 30px;
+        padding: 4px 6px;
     }
 }

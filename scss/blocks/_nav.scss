@@ -8,3 +8,11 @@
     align-self: center;
 }
 
+.nav__btn{
+    display: none;
+
+    @include media-tablet(){
+        display: block;
+    }
+}
+

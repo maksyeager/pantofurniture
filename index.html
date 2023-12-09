@@ -20,7 +20,21 @@
             </div>
             <ul class="nav-list">
               <li class="nav-list__item">
-                <a href="#!" class="nav-list__link">Furniture</a>
+                <a href="#!" class="nav-list__link nav-list__link--dropdown">Furniture</a>
+                <ul class="nav-list__dropdown-menu dropdown-menu">
+                  <li class="dropdown-menu__item">
+                    <a href="#!" class="dropdown-menu__link">Chair</a>
+                  </li>
+                  <li class="dropdown-menu__item">
+                    <a href="#!" class="dropdown-menu__link">Bed</a>
+                  </li>
+                  <li class="dropdown-menu__item">
+                    <a href="#!" class="dropdown-menu__link">Lamp</a>
+                  </li>
+                  <li class="dropdown-menu__item">
+                    <a href="#!" class="dropdown-menu__link">Sofa</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-list__item">
                 <a href="#!" class="nav-list__link"> Shop</a>
@@ -37,6 +51,8 @@
               <img class="cart__image" src="./img/icons/cart.svg" />
               <div class="cart__count">0</div>
             </a>
+
+            <button id="open-mobile-nav-btn" class="nav__btn"><img src="./img/icons/mobile-nav.svg" alt=""></button>
           </nav>
         </div>
 
@@ -64,7 +80,7 @@
           </div>
         </div>
 
-        <div class="header__dot-sofa">
+        <div class="header__dot header__dot--sofa">
           <button class="info-dot">
             <div class="info-dot__circle"></div>
             <div class="info-dot__radius"></div>
@@ -90,7 +106,7 @@
             </label>
           </div>
         </div>
-        <div class="header__dot-vase">
+        <div class="header__dot header__dot--vase" >
           <button class="info-dot">
             <div class="info-dot__circle"></div>
             <div class="info-dot__radius"></div>
@@ -116,7 +132,7 @@
             </label>
           </div>
         </div>
-        <div class="header__dot-item">
+        <div class="header__dot header__dot--item">
           <button class="info-dot">
             <div class="info-dot__circle"></div>
             <div class="info-dot__radius"></div>
@@ -142,7 +158,7 @@
             </label>
           </div>
         </div>
-        <div class="header__dot-wall">
+        <div class="header__dot header__dot--wall">
           <button class="info-dot">
             <div class="info-dot__circle"></div>
             <div class="info-dot__radius"></div>
@@ -169,7 +185,50 @@
           </div>
         </div>
       </div>
+
     </header>
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="mobile-nav__row">
+        <a href="#!" class="mobile-cart">
+          <div class="cart">
+            <img class="cart__image" src="./img/icons/cart.svg" />
+            <div class="cart__count">0</div>
+          </div>
+          <p>Cart</p>
+        </a>
+        <button id="close-mobile-nav-btn" class="mobile-nav__btn"><img src="./img/icons/close.svg" alt=""></button>
+      </div>
+      <ul class="mobile-nav__list">
+        <li class="mobile-nav__item">
+          <a href="#!" class="mobile-nav__link mobile-nav__link--dropdown">Furniture</a>
+          <ul class="mobile-nav-dropdown">
+            <li class="mobile-nav-dropdown__item">
+              <a href="#!" class="mobile-nav-dropdown__link">Chair</a>
+            </li>
+            <li class="mobile-nav-dropdown__item">
+              <a href="#!" class="mobile-nav-dropdown__link">Bed</a>
+            </li>
+            <li class="mobile-nav-dropdown__item">
+              <a href="#!" class="mobile-nav-dropdown__link">Lamp</a>
+            </li>
+            <li class="mobile-nav-dropdown__item">
+              <a href="#!" class="mobile-nav-dropdown__link">Sofa</a>
+            </li>
+          </ul>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="#!" class="mobile-nav__link"> Shop</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="#!" class="mobile-nav__link"> About Us</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="#!" class="mobile-nav__link"> Contact</a>
+        </li>
+      </ul>
+    </div>
+    <!-- // Mobile Nav -->
 
     <section class="benefits">
       <div class="container">
@@ -214,12 +273,16 @@
         <h2 class="products__title">Best Selling Product</h2>
         <div class="products__tabs">
           <div class="tab-controls">
-            <button class="tab-controls__btn tab-controls__btn--active">
-              Chair
+            <button
+              data-tab="all"
+              class="tab-controls__btn tab-controls__btn--active"
+            >
+              All
             </button>
-            <button class="tab-controls__btn">Beds</button>
-            <button class="tab-controls__btn">Sofa</button>
-            <button class="tab-controls__btn">Lamp</button>
+            <button data-tab="chair" class="tab-controls__btn">Chair</button>
+            <button data-tab="bed" class="tab-controls__btn">Beds</button>
+            <button data-tab="sofa" class="tab-controls__btn">Sofa</button>
+            <button data-tab="lamp" class="tab-controls__btn">Lamp</button>
           </div>
         </div>
         <div class="products__slider">
@@ -228,7 +291,7 @@
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
-                <article class="card swiper-slide">
+                <article data-tab-value="chair" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -256,7 +319,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="bed" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -266,7 +329,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Bed</a>
                     <h3 class="card__title">Baltsar Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -284,7 +347,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="lamp" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -294,7 +357,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Lamp</a>
                     <h3 class="card__title">Anjay Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -312,7 +375,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="sofa" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -322,7 +385,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Sofa</a>
                     <h3 class="card__title">Nyantuy Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -340,7 +403,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="chair" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -368,7 +431,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="bed" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -378,7 +441,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Bed</a>
                     <h3 class="card__title">Baltsar Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -396,7 +459,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="lamp" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -406,7 +469,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Lamp</a>
                     <h3 class="card__title">Anjay Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -424,7 +487,7 @@
                   </div>
                 </article>
 
-                <article class="card swiper-slide">
+                <article data-tab-value="sofa" class="card swiper-slide">
                   <a href="#product-page" class="card__link"></a>
                   <div class="card__photo">
                     <img
@@ -434,7 +497,7 @@
                     />
                   </div>
                   <div class="card__description">
-                    <a href="#category" class="card__category">Chair</a>
+                    <a href="#category" class="card__category">Sofa</a>
                     <h3 class="card__title">Nyantuy Chair</h3>
                     <div class="card__rating">
                       <img src="./img/icons/star.svg" alt="" />
@@ -468,7 +531,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer none">
       <div class="container container--small">
         <div class="footer__grid">
           <div class="footer__desc">
@@ -483,7 +546,9 @@
           <div class="footer__nav footer__nav--services">
             <h2 class="footer__nav-title">Services</h2>
             <ul class="footer__list">
-              <li class="footer__list-item"><a href="#!">Email Marketing</a></li>
+              <li class="footer__list-item">
+                <a href="#!">Email Marketing</a>
+              </li>
               <li class="footer__list-item"><a href="#!">Beds</a></li>
               <li class="footer__list-item"><a href="#!">Campaigns</a></li>
             </ul>

@@ -1,56 +1,109 @@
 const infoDots = document.querySelectorAll(".info-dot");
 const infoHints = document.querySelectorAll(".info-hint");
 
+// Клик по кнопкам с подсказками
 infoDots.forEach((dot) => {
-    dot.addEventListener("click", showHint);
+    dot.addEventListener("click", function(event){
+        event.stopPropagation();
+
+        // Закрываем все кнопки
+        infoHints.forEach((hint) => {
+            hint.classList.add("none");
+        });
+
+        // Открываем только нужную
+        this.parentNode.querySelector(".info-hint").classList.toggle("none");
+    });
 })
 
-function showHint(event){
-    event.stopPropagation();
-    this.parentNode.querySelector(".info-hint").classList.toggle("none");
-}
 
 // Закрывем подсказки по цвету по нажатию по любому месту страницы 
-document.addEventListener("click", closeHints);
-
-function closeHints(){
+document.addEventListener("click", () => {
     infoHints.forEach((hint) => {
-                hint.classList.add("none")
-    })
-}
+                hint.classList.add("none");
+    });
+});
 
 // Если клик происходит внутри блока info-hint блокируем клик наверх
 infoHints.forEach((hint) => {
-    hint.addEventListener("click", (event) => event.stopPropagation());
+    hint.addEventListener("click", function(event){
+        event.stopPropagation();
+    });
 })
 
 // Swiper
 const swiper = new Swiper('.swiper', {
-    direction: 'horizontal',
-    loop: true,
-    freeMode: true,
+	// loop: true,
+	// freeMode: true,
 
-    slidesPerView: 4,
-    spaceBetween: 42,
+	slidesPerView: 1,
+	spaceBetween: 42,
 
-    // breakpoints: {
-    //     640: {
-    //       slidesPerView: 2,
-    //       spaceBetween: 20,
-    //     },
-    //     768: {
-    //       slidesPerView: 4,
-    //       spaceBetween: 40,
-    //     },
-    //     1024: {
-    //       slidesPerView: 5,
-    //       spaceBetween: 50,
-    //     },
-    //   },
-    
-    navigation: {
-      nextEl: '#sliderNext',
-      prevEl: '#sliderPrev',
-    },
-  
-  });
+	breakpoints: {
+		600: {
+			slidesPerView: 2,
+			spaceBetween: 20,
+		},
+		920: {
+			slidesPerView: 3,
+			spaceBetween: 20,
+		},
+		1230: {
+			slidesPerView: 4,
+			spaceBetween: 42,
+		},
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '#sliderNext',
+		prevEl: '#sliderPrev',
+	},
+})
+
+// Tabs
+const tabsBtns = document.querySelectorAll("[data-tab]");
+const tabsProducts = document.querySelectorAll("[data-tab-value]");
+
+tabsBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+        // Убираем активный класс у всех кнопок
+        for (let btn of tabsBtns){
+            btn.classList.remove("tab-controls__btn--active");
+        }
+
+        // Добавляем активный класс на нажатую кнопку
+        this.classList.add("tab-controls__btn--active");
+
+        // Получаем значение категории товаров, которые нужно включить
+        const value = this.dataset.tab;
+
+        // Отображаем нужные товары и скрываем ненужные товары
+        tabsProducts.forEach(function(product){
+            if(value === "all"){
+                product.classList.remove("none");
+            }else{
+                if(product.dataset.tabValue === value){
+                    product.classList.remove("none");
+                }else{
+                    product.classList.add("none");
+                }
+            }           
+        })
+
+        swiper.update();
+    })
+})
+
+// Mobile Nav
+const mobileNav = document.querySelector("#mobile-nav");
+const mobileNavBtnOpen = document.querySelector("#open-mobile-nav-btn");
+const mobileNavBtnClose = document.querySelector("#close-mobile-nav-btn");
+
+mobileNavBtnOpen.addEventListener("click", function(){
+    mobileNav.classList.add("mobile-nav--open");
+})
+
+mobileNavBtnClose.addEventListener("click", function(){
+    mobileNav.classList.remove("mobile-nav--open");
+})

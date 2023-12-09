@@ -1,25 +1,39 @@
 .header{
     position: relative;
+    overflow: hidden;
     padding-top: 40px;
     background-color: var(--footer-bg);
     background-image: url("./../img/header/header-bg.jpg");
     background-size: cover;
     background-position: center;
     aspect-ratio: 1440 / 1084;
-
     color: var(--header-text-color);
     
     a{
         color: var(--header-text-color);
     }
 
-    @include retina-bg(url("./../img/header/header-bg@2x.jpg"));
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--header-dark-bg);
+        pointer-events: none;
+    }
+
+    @include retina-bg(url("./../img/header/header-bg@2x.jpg")); 
     
-    
+    @include media-phone{
+        aspect-ratio: unset;
+        padding-bottom: 60px;
+    }
 }
 
 .header__nav{
-    margin-bottom: 86px;
+    margin-bottom: clamp(20px, -0.25rem + 7.5vw, 86px);
 }
 
 .header__content{
@@ -28,7 +42,9 @@
 
 .header__title{
     margin-bottom: 14px;
-    font-size: 80px;
+    // font-size: 80px;
+    text-wrap: balance;
+    font-size: clamp(28px, 0.568rem + 5.91vw, 80px);
     font-weight: 700;
     line-height: 130%; /* 104px */
     letter-spacing: -0.8px;
@@ -38,33 +54,38 @@
 .header__content p{
     margin: 0 auto;
     max-width: 606px;
-    opacity: 0.8;
-    font-size: 24px;
+    font-weight: 500;
+    font-size: clamp(16px, 0.818rem + 0.91vw, 24px);
     line-height: 160%; /* 38.4px */
 }
 
 .header__search{
     margin: 0 auto;
-    margin-top: 45px;
+    margin-top: clamp(10px, -0.17rem + 3.98vw, 45px);
 }
 
 /* Dots */
+.header__dot{
+    @include media-tablet(){
+        display: none;
+    }
+}
 
-.header__dot-sofa{
+.header__dot--sofa{
     position: absolute;
     left: calc(296 * 100% / 1440);
     top: calc(685 * 100% / 1084);
     transform: translate();
 }
 
-.header__dot-vase{
+.header__dot--vase{
     position: absolute;
     left: calc(114 * 100% / 1440);
     top: calc(754 * 100% / 1084);
     transform: translate(-50%, -50%);
 }
 
-.header__dot-item{
+.header__dot--item{
     position: absolute;
     left: calc(810 * 100% / 1440);
     top: calc(787 * 100% / 1084);
@@ -72,7 +93,7 @@
 
 }
 
-.header__dot-wall{
+.header__dot--wall{
     position: absolute;
     right: calc(46 * 100% / 1440);
     top: calc(821 * 100% / 1084);

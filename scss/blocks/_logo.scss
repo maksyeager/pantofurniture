@@ -1,7 +1,7 @@
 .logo{
     color: #FFF !important;
     font-family: var(--font-main);
-    font-size: 28px;
+    font-size: clamp(20px, 1.068rem + 0.91vw, 28px);
     font-style: normal;
     font-weight: 700;
     line-height: normal;

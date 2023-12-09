@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Inter:wght@400;600&display=swap');
 
+html, body{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: var(--font-main);
     color: var(--text-color);
