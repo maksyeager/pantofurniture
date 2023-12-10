@@ -107,3 +107,32 @@ mobileNavBtnOpen.addEventListener("click", function(){
 mobileNavBtnClose.addEventListener("click", function(){
     mobileNav.classList.remove("mobile-nav--open");
 })
+
+// Dropdown Links work with Slider
+// Mobile Dropdown Links work with Slider and close Mobile Nav
+const navDropdownLink = document.querySelectorAll(".dropdown-menu__link");
+const mobileNavDropdownLink = document.querySelectorAll(".mobile-nav-dropdown__link");
+ 
+mobileNavDropdownLink.forEach((link) => {
+    link.addEventListener("click", function(){
+        mobileNav.classList.remove("mobile-nav--open");
+        const type = this.dataset.furnitureType;
+        console.log(type)
+
+        tabsProducts.forEach(function(product){
+            if(product.dataset.tabValue === type){
+                product.classList.remove("none");
+            }else{
+                product.classList.add("none");
+            }          
+        })
+
+        tabsBtns.forEach(function(btn){
+            if(btn.dataset.tab === type){
+                btn.classList.add("tab-controls__btn--active");
+            }else{
+                btn.classList.remove("tab-controls__btn--active");
+            }  
+        })
+    })
+})

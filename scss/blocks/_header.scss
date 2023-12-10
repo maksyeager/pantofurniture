@@ -27,6 +27,7 @@
     @include retina-bg(url("./../img/header/header-bg@2x.jpg")); 
     
     @include media-phone{
+        height: 100vh;
         aspect-ratio: unset;
         padding-bottom: 60px;
     }
@@ -49,6 +50,10 @@
     line-height: 130%; /* 104px */
     letter-spacing: -0.8px;
     text-transform: capitalize;
+
+    @include media-tablet(){
+        margin-top: 80px;
+    }
 }
 
 .header__content p{
@@ -62,6 +67,10 @@
 .header__search{
     margin: 0 auto;
     margin-top: clamp(10px, -0.17rem + 3.98vw, 45px);
+
+    @include media-phone(){
+        margin-top: 45px;
+    }
 }
 
 /* Dots */
